@@ -16,7 +16,7 @@ function mainLoop() {
             
                 setTimeout(mainLoop, 500); 
            
-            if(dishIds.includes(Number(option)) ){
+           if(!isNaN(Number(option)) && dishIds.includes(Number(option)) ){
 
                 console.log(`You've chosen ${option}`);
 

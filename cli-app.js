@@ -1,15 +1,26 @@
 
-let {menu, printMenu, printMessage} = require('./food')
+import {menu, printMenu} from './food'
 
 
 function mainLoop() {
-    option = printMenu(menu, (option)=>{
-        console.log(`You've chosen ${option}`);
+    let option = printMenu(menu, (option)=>{
+       
+            //
+                   
+        
         if( option != ''){
 
             //hw4: !! string input -> integer number
             // check error -> inexistent option
-            setTimeout(mainLoop, 500);
+            console.log(typeof option )
+            console.log( Number(option) )
+            if(typeof Number(option) !== 'number' ){
+                console.log(`You've chosen an inexistent option!`);
+            } else{
+
+                console.log(`You've chosen ${option}`);
+                setTimeout(mainLoop, 500);
+            }       
         }        
     });
 }

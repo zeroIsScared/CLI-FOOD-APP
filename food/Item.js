@@ -13,10 +13,7 @@ export class Item {
             value : price,
             currency : currency
         };
-        this.ids = [];
-        this.addId = () => {
-         this.ids.push(id);
-        }        
+               
     }
 
     get price () {

@@ -2,24 +2,27 @@
 import {menu, printMenu} from './food'
 
 
+
 function mainLoop() {
     let option = printMenu(menu, (option)=>{
        
-            //
+        const dishIds = menu.map(element => element.id )    
                    
         
         if( option != ''){
 
             //hw4: !! string input -> integer number
             // check error -> inexistent option
-            console.log(typeof option )
-            console.log( Number(option) )
-            if(typeof Number(option) !== 'number' ){
-                console.log(`You've chosen an inexistent option!`);
-            } else{
+            
+                setTimeout(mainLoop, 500); 
+           
+            if(dishIds.includes(Number(option)) ){
 
                 console.log(`You've chosen ${option}`);
-                setTimeout(mainLoop, 500);
+
+            } else{
+
+                console.log(`You've chosen an inexistent option!`);                
             }       
         }        
     });

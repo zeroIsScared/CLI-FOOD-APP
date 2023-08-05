@@ -1,6 +1,6 @@
 import fs  from 'fs';
 import {map} from './map.js';
-import * as CLAZZ from 'cLAZZ';
+//import * as CLAZZ from 'cLAZZ';
 
 //Save to file
 export const save = (data, type)=> {
@@ -12,7 +12,7 @@ export const save = (data, type)=> {
 }
 
 //Load to file
-const cLAZZ = (map[data["type"]]);
+
 export const load = ()=> {
 
    let data = JSON.parse(
@@ -21,7 +21,8 @@ export const load = ()=> {
     ).toString()
    )
 
-   console.log(CLAZZ);
+  console.log(CLAZZ);
+   const Clazz = require (map[data["type"]]);
    let obj = new CLAZZ (data.name);
-   return obj;    
+   return obj;     
 }

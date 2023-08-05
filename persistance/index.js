@@ -13,7 +13,7 @@ export const save = (data, type)=> {
 
 //Load to file
 
-export const load = ()=> {
+export const load = async()=> {
 
    let data = JSON.parse(
     fs.readFileSync(
@@ -21,8 +21,9 @@ export const load = ()=> {
     ).toString()
    )
 
-  console.log(CLAZZ);
-   const Clazz = require (map[data["type"]]);
+  
+   const CLAZZ = await import (map[data["type"]]);
+   console.log(CLAZZ)
    let obj = new CLAZZ (data.name);
-   return obj;     
+   return obj;    
 }

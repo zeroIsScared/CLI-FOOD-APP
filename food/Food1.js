@@ -1,9 +1,10 @@
 export  class Food {
-    constructor (name ) {            
-        this.name = name;          
+    constructor (name, price ) {            
+        this.name = name; 
+        this.price = price;         
     }
     print() {
-        return  `${this.name}\n`  
+        return  `${{...this.name}}  ${this.price}\n`  
                
      }
 }

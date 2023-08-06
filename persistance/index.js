@@ -3,27 +3,29 @@ import {map} from './map.js';
 //import * as CLAZZ from 'cLAZZ';
 
 //Save to file
-export const save = (data, type)=> {
-    data.type = type
+export const save = (object, path)=> {
+    object.type = object.constructor.name 
 
     fs.writeFileSync(
-        './persistance/data/food.json',
-         JSON.stringify(data));
+        path,
+         JSON.stringify(object));
 }
 
-//Load to file
+// //Load to file
 
-export const load = async()=> {
+export const load = async(path)=> {
 
    let data = JSON.parse(
     fs.readFileSync(
-        './persistance/data/food.json'
+        path
     ).toString()
    )
 
   
-   const CLAZZ = await import (map[data["type"]]);
-   console.log(CLAZZ)
-   let obj = new CLAZZ (data.name);
+   const module= await import (map[data["type"]]);
+   const CLAZZ = module[data["type"]];
+   console.log(module)
+   //pass all the properties
+   let obj = new CLAZZ ({...data});
    return obj;    
 }
